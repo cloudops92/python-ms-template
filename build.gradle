@@ -33,7 +33,7 @@ build{
 
 distributions {
     python {
-        baseName = project.name
+        baseName = "pythonapp"
         contents {
             from 'src/main/python'
             from 'src/main/resources'

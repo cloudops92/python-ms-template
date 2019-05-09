@@ -1,0 +1,9 @@
+version: '3'
+services:
+  python-ms-template:
+    build:
+      context: .
+    ports:
+      - "8080"
+    environment:
+      - APPLICATION_NAME=python-ms-template
