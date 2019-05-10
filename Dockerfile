@@ -1,7 +1,20 @@
-FROM django:latest
+FROM python:3.6
+
+RUN apt-get update && apt-get install -y \
+		gcc \
+		gettext \
+		mysql-client default-libmysqlclient-dev \
+		postgresql-client libpq-dev \
+		sqlite3 \
+		curl    \
+--no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY build/install/pythonapp/ .
 RUN pip install -r requirements.txt
-EXPOSE 8080
-HEALTHCHECK CMD curl -f http://localhost:8080/actuator/health/ || exit 1
+
+EXPOSE 8000
+HEALTHCHECK CMD curl -f http://0.0.0.0:8000/ || exit 1
+
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

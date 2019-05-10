@@ -1,1 +1,2 @@
-requests==2
+psycopg2>=2.8
+django==1.10.4

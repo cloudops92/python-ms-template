@@ -4,6 +4,6 @@ services:
     build:
       context: .
     ports:
-      - "8080"
+      - "8000"
     environment:
       - APPLICATION_NAME=python-ms-template
