@@ -17,6 +17,9 @@ apply plugin: 'idea'
 // Applying repositories
 apply from: 'configs/repositories.gradle'
 
+// Applying repositories
+apply from: 'configs/docker.gradle'
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
 }
