@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-aws_region=$1
+aws_region=${AWS_REGION}
 repository_name=$2
 tag=$3
 
