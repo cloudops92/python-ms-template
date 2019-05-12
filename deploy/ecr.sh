@@ -1,10 +1,9 @@
 #!/bin/bash
 
-aws_region=${AWS_REGION}
+aws_region="${AWS_REGION}"
 repository_name=$1
 tag=$2
 
-aws_region=$(aws configure get region)
 aws_account=$(aws sts get-caller-identity --query 'Account' --output text)
 
 {
