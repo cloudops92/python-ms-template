@@ -1,6 +1,7 @@
 version: '3'
 services:
   python-ms-template:
+    image: python-ms-template:latest
     build:
       context: .
     ports:

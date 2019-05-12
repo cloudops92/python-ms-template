@@ -26,12 +26,6 @@ dependencies {
 
 build{
     dependsOn 'installPythonDist'
- /*   doLast{
-        exec{
-            workingDir 'build/install/' +project.name
-            commandLine 'pip', 'install', '-r', 'requirements.txt'
-        }
-    }*/
 }
 
 distributions {

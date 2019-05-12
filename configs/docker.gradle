@@ -1,3 +1,8 @@
+
+/*
+    Integration of the gradle plugin
+    https://github.com/avast/gradle-docker-compose-plugin
+ */
 dockerCompose {
 
     stopContainers = true // doesn't call `docker-compose down` if set to false - see below the paragraph about reconnecting; default is true
@@ -5,6 +10,26 @@ dockerCompose {
     removeImages = "None" // Other accepted values are: "All" and "Local"
     removeVolumes = true // default is true
     removeOrphans = false // removes containers for services not defined in the Compose file; default is false
+}
 
-    projectName = project.getName()
+tasks.register("composePushEcr"){
+    group = 'AWSGradle'
+    description = 'Pusing docker images to AWS ECR'
+
+    def aws_region = $System.env.AWS_REGION
+    def repository_name = project.name
+    def tag = $System.env.BUILD_TAG
+
+    dependsOn 'composeBuild'
+    exec{
+        commandLine './deploy/ecr.sh ', aws_region, repository_name, tag
+
+        //store the output instead of printing to the console:
+        standardOutput = new ByteArrayOutputStream()
+
+        //extension method stopTomcat.output() can be used to obtain the output:
+        ext.output = {
+            return standardOutput.toString()
+        }
+    }
 }
