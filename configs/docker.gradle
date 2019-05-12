@@ -22,7 +22,7 @@ tasks.register("composePushEcr"){
     dependsOn 'composeBuild'
     exec{
 
-        commandLine 'sh', './deploy/ecr.sh', repository_name, tag
+        commandLine './deploy/ecr.sh', repository_name, tag
 
         //store the output instead of printing to the console:
         standardOutput = new ByteArrayOutputStream()

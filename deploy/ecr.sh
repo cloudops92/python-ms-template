@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 aws_region=${AWS_REGION}
 repository_name=$2
