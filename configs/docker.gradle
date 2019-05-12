@@ -17,12 +17,12 @@ tasks.register("composePushEcr"){
     description = 'Pusing docker images to AWS ECR'
 
     def repository_name = project.name
-    //def tag = $System.env.BUILD_TAG
     def tag = "latest"
 
     dependsOn 'composeBuild'
     exec{
-        commandLine './deploy/ecr.sh ', repository_name, tag
+
+        commandLine 'sh', './deploy/ecr.sh', repository_name, tag
 
         //store the output instead of printing to the console:
         standardOutput = new ByteArrayOutputStream()
