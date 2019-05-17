@@ -1,0 +1,24 @@
+version: 0.2
+
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - apt-get update -y
+      - apt-get install -y npm
+    finally:
+      - echo Stage install is complete.
+  pre_build:
+    commands:
+      - cd frontend/
+  build:
+    commands:
+      - npm install -g
+      - ng build —prod
+artifacts:
+  files:
+    - 'dist/*'
+  name: taaraka-red/frontend/$(AWS_REGION)/$(date +%Y-%m-%d)/
