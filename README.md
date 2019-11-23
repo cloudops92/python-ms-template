@@ -1,4 +1,7 @@
 # python-ms-template
+
+![](https://github.com/zero-templates/python-ms-template/workflows/python-ms-template-ci/badge.svg)
+
 This is java python-service template. This template allows to build and deploy docker image simply.
 This template is very basic having integration of Django application.
 
