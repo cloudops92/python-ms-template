@@ -15,13 +15,21 @@ apply plugin: 'base'
 apply plugin: 'idea'
 
 // Applying repositories
-apply from: 'configs/repositories.gradle'
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+    jcenter()
+}
 
 // Applying repositories
-apply from: 'configs/docker.gradle'
+dockerCompose {
 
-// In this section you declare the dependencies for your production and test code
-dependencies {
+    stopContainers = true // doesn't call `docker-compose down` if set to false - see below the paragraph about reconnecting; default is true
+    removeContainers = true // default is true
+    removeImages = "None" // Other accepted values are: "All" and "Local"
+    removeVolumes = true // default is true
+    removeOrphans = false // removes containers for services not defined in the Compose file; default is false
 }
 
 build{
