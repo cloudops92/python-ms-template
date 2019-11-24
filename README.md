@@ -2,8 +2,8 @@
 
 ![](https://github.com/zero-templates/python-ms-template/workflows/python-ms-template-ci/badge.svg)
 
-This is java python-service template. This template allows to build and deploy docker image simply.
-This template is very basic having integration of Django application.
+This is Python micro-service base template. This template allows to add your code and quickly build and deploy 
+docker image simply. This template is very basic having integration of Django application as an example.
 
 Basic knowledge of the [Gradle](https://gradle.org) and [Docker](https://www.docker.com) is 
 require.
@@ -15,7 +15,7 @@ that allows to configure and manager docker images.
 All configurations are present into the `configs/docker.gradle`
 
 ## Build
-Below command will generate the distribution zip under `build/distributions/{app_name}.zip` directory
+Below command will generate the docker image with name `python_ms_template:latest`.
 
 ###### Build the Application
 ~~~~
@@ -31,3 +31,7 @@ $ ./gradlew composeBuild
 ~~~~
 $ ./gradlew composeUp
 ~~~~
+
+## Communication
+
+- **Email**: mishalshah92@gmail.com
