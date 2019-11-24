@@ -1,0 +1,23 @@
+name: python-ms-template-ci
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v1
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Build with Gradle
+        run: ./gradlew clean build --stacktrace
+      - name: publish
+        if: github.ref == 'refs/heads/master'
+        run: |
+          docker login docker.pkg.github.com -u mishalshah92 -p ${{ secrets.GITHUB_TOKEN }}
+          docker tag python-ms-template_python-ms-template:latest docker.pkg.github.com/zero-templates/python-ms-template/python-ms-template:latest
+          docker push docker.pkg.github.com/zero-templates/python-ms-template/python-ms-template:latest
