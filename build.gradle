@@ -7,12 +7,13 @@
  */
 
 plugins {
-    id 'distribution'
     id "com.avast.gradle.docker-compose" version "0.9.4"
 }
 
 apply plugin: 'base'
 apply plugin: 'idea'
+apply plugin: 'docker-compose'
+
 
 // Applying repositories
 repositories {
@@ -22,29 +23,8 @@ repositories {
     jcenter()
 }
 
-// Applying repositories
-dockerCompose {
+dockerCompose.isRequiredBy(build)
 
-    stopContainers = true // doesn't call `docker-compose down` if set to false - see below the paragraph about reconnecting; default is true
-    removeContainers = true // default is true
-    removeImages = "None" // Other accepted values are: "All" and "Local"
-    removeVolumes = true // default is true
-    removeOrphans = false // removes containers for services not defined in the Compose file; default is false
-}
-
-build{
-    dependsOn 'installPythonDist'
-}
-
-distributions {
-    python {
-        baseName = "pythonapp"
-        contents {
-            from 'src/main/python'
-            from 'src/main/resources'
-        }
-    }
-}
 
 wrapper {
     gradleVersion = '6.0'
