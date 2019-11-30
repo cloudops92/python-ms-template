@@ -1,6 +1,6 @@
 # python-ms-template
 
-![](https://github.com/zero-templates/python-ms-template/workflows/python-ms-template-ci/badge.svg)
+![](https://github.com/lazy-leo/python-ms-template/workflows/python-ms-template-ci/badge.svg)
 
 This is Python micro-service base template. This template allows to add your code and quickly build and deploy 
 docker image simply. This template is very basic having integration of Django application as an example.
