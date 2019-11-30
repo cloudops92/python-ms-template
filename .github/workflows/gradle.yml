@@ -19,5 +19,5 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           docker login docker.pkg.github.com -u mishalshah92 -p ${{ secrets.GITHUB_TOKEN }}
-          docker tag python-ms-template:latest docker.pkg.github.com/zero-templates/python-ms-template/python-ms-template:latest
-          docker push docker.pkg.github.com/zero-templates/python-ms-template/python-ms-template:latest
+          docker tag python-ms-template:latest docker.pkg.github.com/lazy-leo/python-ms-template/python-ms-template:latest
+          docker push docker.pkg.github.com/lazy-leo/python-ms-template/python-ms-template:latest
