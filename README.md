@@ -34,4 +34,4 @@ $ ./gradlew composeUp
 
 ## Communication
 
-- **Email**: mishalshah92@gmail.com
+- **Email**: lazzy.leoo@gmail.com
