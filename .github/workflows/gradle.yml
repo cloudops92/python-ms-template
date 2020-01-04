@@ -14,10 +14,4 @@ jobs:
         with:
           python-version: 3.7
       - name: Build with Gradle
-        run: ./gradlew clean build --stacktrace
-      - name: publish
-        if: github.ref == 'refs/heads/master'
-        run: |
-          docker login docker.pkg.github.com -u mishalshah92 -p ${{ secrets.GITHUB_TOKEN }}
-          docker tag python-ms-template:latest docker.pkg.github.com/lazy-leo/python-ms-template/python-ms-template:latest
-          docker push docker.pkg.github.com/lazy-leo/python-ms-template/python-ms-template:latest
+        run: ./gradlew clean build --stacktracet
