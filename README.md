@@ -1,6 +1,6 @@
 # python-ms-template
 
-![](https://github.com/lazy-leo/python-ms-template/workflows/python-ms-template-ci/badge.svg)
+![](https://github.com/mishalshah92/python-ms-template/workflows/python-ms-template-ci/badge.svg)
 
 This is Python micro-service base template. This template allows to add your code and quickly build and deploy 
 docker image simply. This template is very basic having integration of Django application as an example.
@@ -34,4 +34,4 @@ $ ./gradlew composeUp
 
 ## Communication
 
-- **Email**: lazzy.leoo@gmail.com
+- **Email**: mishalshah92@gmail.com
