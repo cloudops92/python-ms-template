@@ -14,4 +14,4 @@ jobs:
         with:
           python-version: 3.7
       - name: Build with Gradle
-        run: ./gradlew clean build --stacktracet
+        run: ./gradlew clean build --stacktrace
